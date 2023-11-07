@@ -1,0 +1,99 @@
+
+-- Populate Owners table
+INSERT INTO Owners (FirstName, LastName, Phone, Email, Address)
+VALUES
+    ('John', 'Doe', '555-123-4567', 'john.doe@email.com', '123 Main St'),
+    ('Jane', 'Smith', '555-987-6543', 'jane.smith@email.com', '456 Elm St'),
+    ('Michael', 'Johnson', '555-555-5555', 'michael.johnson@email.com', '789 Oak St'),
+    ('Emily', 'Williams', '555-111-2222', 'emily.williams@email.com', '567 Pine St'),
+    ('David', 'Brown', '555-777-8888', 'david.brown@email.com', '1010 Maple Ave'),
+    ('Sarah', 'Davis', '555-444-3333', 'sarah.davis@email.com', '222 Cedar Rd'),
+    ('William', 'Wilson', '555-999-0000', 'william.wilson@email.com', '333 Birch Ln'),
+    ('Karen', 'Lee', '555-222-3333', 'karen.lee@email.com', '444 Spruce Blvd'),
+    ('Christopher', 'Martinez', '555-333-4444', 'christopher.martinez@email.com', '555 Redwood St'),
+    ('Laura', 'Garcia', '555-666-7777', 'laura.garcia@email.com', '666 Sequoia Ave');
+
+-- Populate Pets table
+INSERT INTO Pets (OwnerID, Name, Breed)
+VALUES
+    (1, 'Buddy', 'Dog'),
+    (1, 'Whiskers', 'Cat'),
+    (2, 'Fido', 'Dog'),
+    (3, 'Fluffy', 'Cat'),
+    (4, 'Max', 'Dog'),
+    (5, 'Bella', 'Cat'),
+    (6, 'Rocky', 'Dog'),
+    (7, 'Luna', 'Cat'),
+    (8, 'Charlie', 'Dog'),
+    (9, 'Milo', 'Cat');
+
+-- Populate Employees table
+INSERT INTO Employees (FirstName, LastName, Position, Phone, Email)
+VALUES
+    ('Dr. Amanda', 'Smith', 'Veterinarian', '555-123-7890', 'amanda.smith@email.com'),
+    ('Dr. James', 'Wilson', 'Veterinarian', '555-987-6540', 'james.wilson@email.com'),
+    ('Rebecca', 'Johnson', 'Veterinary Technician', '555-555-5555', 'rebecca.johnson@email.com'),
+    ('Dr. Sarah', 'Anderson', 'Veterinarian', '555-111-2222', 'sarah.anderson@email.com'),
+    ('Laura', 'Wilson', 'Veterinary Technician', '555-444-3333', 'laura.wilson@email.com'),
+    ('Dr. Michael', 'Davis', 'Veterinarian', '555-777-8888', 'michael.davis@email.com'),
+    ('Rebecca', 'Martinez', 'Veterinary Technician', '555-999-0000', 'rebecca.martinez@email.com'),
+    ('Dr. Robert', 'Garcia', 'Veterinarian', '555-222-3333', 'robert.garcia@email.com'),
+    ('James', 'Lee', 'Veterinary Technician', '555-333-4444', 'james.lee@email.com'),
+    ('Dr. Jessica', 'Smith', 'Veterinarian', '555-666-7777', 'jessica.smith@email.com');
+
+-- Populate Services table
+INSERT INTO Services (ServiceName, Description, Cost)
+VALUES
+    ('Routine Checkup', 'Regular pet health checkup', 50.00),
+    ('Vaccination', 'Standard vaccinations for pets', 30.00),
+    ('Dental Cleaning', 'Teeth cleaning and examination', 75.00),
+    ('Surgery', 'Various surgical procedures', 150.00),
+    ('X-Ray', 'Diagnostic X-ray imaging', 80.00),
+    ('Grooming', 'Pet grooming services', 40.00),
+    ('Microchipping', 'Pet microchip implantation', 25.00),
+    ('Emergency Care', 'Emergency veterinary care', 200.00),
+    ('Medication', 'Prescription medication', 20.00),
+    ('Behavioral Consultation', 'Pet behavioral consultation', 60.00);
+
+-- Populate Visits table
+INSERT INTO Visits (PetID, EmployeeID, Date, Notes)
+VALUES
+    (1, 1, '2023-01-10', 'Routine checkup and vaccination'),
+    (2, 1, '2023-02-15', 'Annual checkup and rabies shot'),
+    (3, 2, '2023-03-20', 'Dental cleaning and examination'),
+    (4, 2, '2023-04-25', 'Surgery to remove a tumor'),
+    (5, 3, '2023-05-10', 'X-ray for a leg injury'),
+    (6, 3, '2023-06-15', 'Grooming and microchipping'),
+    (7, 1, '2023-07-20', 'Emergency care for severe injury'),
+    (8, 2, '2023-08-25', 'Medication for an infection'),
+    (9, 3, '2023-09-10', 'Behavioral consultation for aggression'),
+    (10, 1, '2023-10-15', 'Routine checkup and vaccination');
+
+-- Populate VisitServices table
+INSERT INTO VisitServices (VisitID, ServiceID)
+VALUES
+    (1, 1),
+    (1, 2),
+    (2, 1),
+    (2, 8),
+    (3, 3),
+    (4, 4),
+    (5, 5),
+    (6, 6),
+    (7, 7),
+    (8, 9),
+    (9, 10),
+    (10, 1),
+    (10, 2);
+
+
+-- SELECT * FROM VisitDetails;
+
+-- DROP TABLE IF EXISTS VisitServices;
+-- DROP TABLE IF EXISTS ShotHistory;
+-- DROP TABLE IF EXISTS Visits;
+-- DROP TABLE IF EXISTS Services;
+-- DROP TABLE IF EXISTS Employees;
+-- DROP TABLE IF EXISTS Pets;
+-- DROP TABLE IF EXISTS Owners;
+

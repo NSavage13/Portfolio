@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/Users/nicosavage/Desktop/SQL/mssql-jdbc-12.4.0.jre8.jar",
+        "/Users/nicosavage/Desktop/Final/mssql-jdbc-12.4.0.jre8.jar",
+        "/Users/nicosavage/Documents/AzureSQL/mssql-jdbc-12.4.0.jre8.jar"
+    ]
+}

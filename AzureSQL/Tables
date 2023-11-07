@@ -1,0 +1,56 @@
+-- Create Owners table
+CREATE TABLE Owners (
+    OwnerID INT IDENTITY(1,1) PRIMARY KEY,
+    FirstName NVARCHAR(50) NOT NULL,
+    LastName NVARCHAR(50) NOT NULL,
+    Phone NVARCHAR(15) NOT NULL,
+    Email NVARCHAR(100) NOT NULL,
+    Address NVARCHAR(100) NOT NULL
+);
+
+-- Create Pets table
+CREATE TABLE Pets (
+    PetID INT IDENTITY(1,1) PRIMARY KEY,
+    OwnerID INT NOT NULL,
+    Name NVARCHAR(50) NOT NULL,
+    Breed NVARCHAR(50) NOT NULL,
+    CONSTRAINT FK_Pets_Owners FOREIGN KEY (OwnerID) REFERENCES Owners(OwnerID)
+);
+
+-- Create Employees table
+CREATE TABLE Employees (
+    EmployeeID INT IDENTITY(1,1) PRIMARY KEY,
+    FirstName NVARCHAR(50) NOT NULL,
+    LastName NVARCHAR(50) NOT NULL,
+    Position NVARCHAR(50) NOT NULL,
+    Phone NVARCHAR(15) NOT NULL,
+    Email NVARCHAR(100) NOT NULL
+);
+
+-- Create Services table
+CREATE TABLE Services (
+    ServiceID INT IDENTITY(1,1) PRIMARY KEY,
+    ServiceName NVARCHAR(50) NOT NULL,
+    Description NVARCHAR(200) NOT NULL,
+    Cost DECIMAL(10, 2) NOT NULL
+);
+
+-- Create Visits table
+CREATE TABLE Visits (
+    VisitID INT IDENTITY(1,1) PRIMARY KEY,
+    PetID INT NOT NULL,
+    EmployeeID INT NOT NULL,
+    Date DATE NOT NULL,
+    Notes NVARCHAR(200) NOT NULL,
+    CONSTRAINT FK_Visits_Pets FOREIGN KEY (PetID) REFERENCES Pets(PetID),
+    CONSTRAINT FK_Visits_Employees FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)
+);
+
+-- Create VisitServices table
+CREATE TABLE VisitServices (
+    VisitServiceID INT IDENTITY(1,1) PRIMARY KEY,
+    VisitID INT NOT NULL,
+    ServiceID INT NOT NULL,
+    CONSTRAINT FK_VisitServices_Visits FOREIGN KEY (VisitID) REFERENCES Visits(VisitID),
+    CONSTRAINT FK_VisitServices_Services FOREIGN KEY (ServiceID) REFERENCES Services(ServiceID)
+);

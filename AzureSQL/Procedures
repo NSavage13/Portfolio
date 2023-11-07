@@ -1,0 +1,25 @@
+-- drop PROCEDURE GetTotalCost;
+CREATE PROCEDURE GetTotalCost
+    @visitID INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    SELECT o.FirstName + ' ' + o.LastName AS OwnerName,
+           p.Name AS PetName,
+           v.Date AS VisitDate,
+           SUM(s.Cost) AS TotalCost
+    FROM VisitServices vs
+    JOIN Services s ON vs.ServiceID = s.ServiceID
+    JOIN Visits v ON vs.VisitID = v.VisitID
+    JOIN Pets p ON v.PetID = p.PetID
+    JOIN Owners o ON p.OwnerID = o.OwnerID
+    WHERE vs.VisitID = @visitID
+    GROUP BY o.FirstName, o.LastName, p.Name, v.Date;
+
+END;
+GO
+
+
+
+
