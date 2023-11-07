@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessTracker.Views.AddExerciseView"
+             xmlns:local="clr-namespace:FitnessTracker.Models"
+             Title="AddExerciseView">
+
+    <StackLayout Padding="20">
+        <Label Text="Add Exercise" FontSize="Title" HorizontalOptions="Center" />
+
+        <Label Text="Exercise Name" Padding="0,10,0,0" />
+            <Picker x:Name="ExercisePicker" Title="Select Exercise" SelectedIndexChanged="OnExercisePickerSelectedIndexChanged">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Dumbbell</x:String>
+                    <x:String>Incline Seat</x:String>
+                    <x:String>Leg Press</x:String>
+                    <x:String>Seated pushdown</x:String>
+                    <x:String>Seated row</x:String>
+                    <x:String>Arm curl</x:String>
+                    <x:String>Shoulder Press</x:String>
+                    <x:String>Chest Press</x:String>
+                    <x:String>Rotary Torso</x:String>
+                    <x:String>Lat Pulldown</x:String>
+                    <x:String>Low Back Extension</x:String>
+                    <x:String>Abdominal Crunch</x:String>
+                    <x:String>Inner Outer Thigh</x:String>
+                    <x:String>Seated Leg Curl</x:String>
+                    <x:String>Leg Extension</x:String>
+                    <x:String>Resistance Bands</x:String>
+                </x:Array>
+                
+            </Picker.ItemsSource>
+        </Picker>
+
+
+        <!-- Weight -->
+        <Label Text="Weight (lbs)" Padding="0,10,0,0" />
+        <HorizontalStackLayout>
+            <Stepper x:Name="WeightStepper" Minimum="0" Maximum="1000" Increment="5" Value="0" ValueChanged="OnWeightStepperValueChanged" />
+            <Label x:Name="WeightLabel" Text="0" FontSize="25" VerticalOptions="Center" Padding="10,0,0,0" />
+        </HorizontalStackLayout>
+
+        <!-- Repetitions -->
+        <Label Text="Repetitions" Padding="0,10,0,0" />
+        <HorizontalStackLayout>
+            <Stepper x:Name="RepetitionsStepper" Minimum="0" Maximum="100" Increment="1" Value="0" ValueChanged="OnRepetitionsStepperValueChanged" />
+            <Label x:Name="RepetitionsLabel" Text="0" FontSize="25" VerticalOptions="Center" Padding="10,0,0,0" />
+        </HorizontalStackLayout>
+
+        <!-- Date Performed -->
+        <Label Text="Date Performed" Padding="0,10,0,0" />
+        <DatePicker x:Name="DatePerformedPicker" />
+
+        <!-- Save Button -->
+        <Button Text="Save" Clicked="OnSaveButtonClicked" />
+
+        <Image x:Name="ExerciseImage" Source="{x:Null}" HeightRequest="300" Margin="0,10,0,0" HorizontalOptions="CenterAndExpand" />
+
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FitnessTracker.ViewModels"
+             x:Class="FitnessTracker.Views.ViewExercisesView">
+
+    <StackLayout >
+        <!-- Date Filter -->
+        <Label Text="Filter by Date" FontSize="20" HorizontalOptions="Center" />
+        <DatePicker x:Name="DateFilterPicker" DateSelected="OnDateFilterSelected" />
+
+        <!-- Machine Filter -->
+        <Label Text="Filter by Machine" FontSize="20" HorizontalOptions="Center"/>
+        <Picker x:Name="MachineFilterPicker" Title="Select Machine" SelectedIndexChanged="OnMachineFilterSelectedIndexChanged">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>---</x:String>
+                    <x:String>Dumbbell</x:String>
+                    <x:String>Incline Seat</x:String>
+                    <x:String>Leg Press</x:String>
+                    <x:String>Seated pushdown</x:String>
+                    <x:String>Seated row</x:String>
+                    <x:String>Arm curl</x:String>
+                    <x:String>Shoulder Press</x:String>
+                    <x:String>Chest Press</x:String>
+                    <x:String>Rotary Torso</x:String>
+                    <x:String>Lat Pulldown</x:String>
+                    <x:String>Low Back Extension</x:String>
+                    <x:String>Abdominal Crunch</x:String>
+                    <x:String>Inner Outer Thigh</x:String>
+                    <x:String>Seated Leg Curl</x:String>
+                    <x:String>Leg Extension</x:String>
+                    <x:String>Resistance Bands</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <ListView ItemsSource="{Binding Exercises}" RowHeight="100" IsVisible="{Binding IsListVisible}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <!-- Display exercise details using a StackLayout -->
+                        <StackLayout Padding="10">
+
+                            <HorizontalStackLayout>
+                                <Label Text="Machine:" FontAttributes="Bold" />
+                                <Label Text="{Binding Machine}" Padding="5,0,0,0"/>
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout>
+                                <Label Text="Weight:" FontAttributes="Bold" />
+                                <Label Text="{Binding Weight}" Padding="5,0,0,0"/>
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout>
+                                <Label Text="Repetitions:" FontAttributes="Bold" />
+                                <Label Text="{Binding Repetitions}" Padding="5,0,0,0"/>
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout>
+                                <Label Text="Date Performed:" FontAttributes="Bold" />
+                                <Label Text="{Binding DatePerformed}" Padding="5,0,0,0"/>
+                            </HorizontalStackLayout>
+
+                        </StackLayout>
+
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Delete" Clicked="OnDeleteExerciseClicked" CommandParameter="{Binding .}" />
+                        </ViewCell.ContextActions>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
