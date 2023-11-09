@@ -11,15 +11,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-/*
- * 
- * jdbc:sqlserver://nicoleipremiere.database.windows.net:1433;database=premiere;user=studentLogin@nicoleipremiere;password=a,plain3;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
- * 
- */
+
 @RestController
 public class PetsController {
 
-    private String connectionString= "jdbc:sqlserver://nicoleipremiere.database.windows.net:1433;database=premiere;user=studentLogin@nicoleipremiere;password=a,plain3;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+    private String connectionString= "jdbc:sqlserver://nicoleipremiere.database.windows.net:1433;database=premiere;user={username}@nicoleipremiere;password={password Here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
     
     @GetMapping("/premiere")
     public ResponseEntity<List<Pets>> allPets(){
