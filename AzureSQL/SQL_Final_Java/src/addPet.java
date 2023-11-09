@@ -59,7 +59,6 @@ public class addPet extends JFrame {
         try (Connection connection = DriverManager.getConnection(";")) {
             String sql = "INSERT INTO Pets (OwnerID, Name, Breed) VALUES (?, ?, ?)";
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                // For simplicity, assume OwnerID is always 1 (you can adjust as needed)
                 preparedStatement.setInt(1, 1);
                 preparedStatement.setString(2, petName);
                 preparedStatement.setString(3, petBreed);

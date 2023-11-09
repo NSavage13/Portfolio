@@ -9,15 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PetDatabaseAppGUI {
-    private JButton openServiceAdderButton; // Button to open the service adder
-    private JButton openInsertFormButton; // Button to open the pet insertion form
+    private JButton openServiceAdderButton; 
+    private JButton openInsertFormButton; 
     private DefaultTableModel tableModel;
     private JFrame mainFrame;
     private JComboBox<String> petComboBox;
     private JButton searchButton;
  
-    private JComboBox<Integer> visitIdComboBox; // Dropdown for Visit ID
-    private JButton getTotalCostButton; // Button to execute GetTotalCost
+    private JComboBox<Integer> visitIdComboBox; 
+    private JButton getTotalCostButton; 
 
     public PetDatabaseAppGUI() {
         initializeUI();
@@ -37,18 +37,15 @@ public class PetDatabaseAppGUI {
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setLayout(new FlowLayout());
 
-        // Create a combo box to select pets
         JLabel petLabel = new JLabel("Pet:");
         mainFrame.add(petLabel);
         petComboBox = new JComboBox<>();
         populatePetComboBox();
         mainFrame.add(petComboBox);
 
-        // Create a search button
         searchButton = new JButton("Search");
         mainFrame.add(searchButton);
 
-        // Create a dropdown for Visit ID
         JLabel visitIdLabel = new JLabel("Visit ID:");
         mainFrame.add(visitIdLabel);
         visitIdComboBox = new JComboBox<>();
@@ -68,11 +65,8 @@ public class PetDatabaseAppGUI {
         JTable table = new JTable();
         tableModel = new DefaultTableModel();
         table.setModel(tableModel);
-        // does lets the words run of the table and adjust each column to the size of the word
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-
-        // Add the table to a scroll pane
         JScrollPane scrollPane = new JScrollPane(table);
         mainFrame.add(scrollPane);
 
@@ -95,8 +89,6 @@ public class PetDatabaseAppGUI {
             }
         });
 
-
-        // Add action listeners
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -117,7 +109,6 @@ public class PetDatabaseAppGUI {
     }
 
     private void populatePetComboBox() {
-        // Connect to the database and populate the combo box with pet names
         try (Connection connection = DriverManager.getConnection(";")) {
             String sql = "SELECT Name FROM Pets";
             try (Statement statement = connection.createStatement(); ResultSet resultSet = statement.executeQuery(sql)) {
@@ -132,7 +123,6 @@ public class PetDatabaseAppGUI {
     }
 
     private void populateVisitIdComboBox() {
-        // Connect to the database and populate the Visit ID dropdown with visit IDs
         try (Connection connection = DriverManager.getConnection("")) {
             String sql = "SELECT VisitID FROM VisitDetails";
             try (Statement statement = connection.createStatement(); ResultSet resultSet = statement.executeQuery(sql)) {

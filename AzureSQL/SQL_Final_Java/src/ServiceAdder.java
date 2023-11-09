@@ -77,8 +77,7 @@ public class ServiceAdder extends JFrame {
                         String sql = "INSERT INTO VisitServices (VisitID, ServiceID) VALUES (?, " +
                                 "(SELECT ServiceID FROM Services WHERE ServiceName = ?))";
                         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                            // You need to get the visitID here
-                            // For simplicity, assume visitID is always 1 (you can adjust as needed)
+                            
                             int visitID = 1;
                             preparedStatement.setInt(1, visitID);
                             preparedStatement.setString(2, selectedService);
